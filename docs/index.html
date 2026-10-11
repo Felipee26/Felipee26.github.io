@@ -31,4 +31,56 @@
             <p class="text-gray-400 text-sm mb-4">Recomendado: Motul 10W-40 full synthetic.</p>
             <div class="mb-6">
                 <p class="text-sm text-gray-500 mb-1">Último cambio:</p>
-                <p class="font-mono text-lg" id="fecha-aceite">15
+                <p class="font-mono text-lg" id="fecha-aceite">15 Oct 2026</p>
+            </div>
+            <button onclick="abrirModal('Aceite de Motor', 'fecha-aceite')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200">
+                Registrar Cambio
+            </button>
+        </div>
+
+        <!-- Tarjeta: Tensión de Cadena -->
+        <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700 shadow-lg hover:border-green-500 transition-colors duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-green-500/20 rounded-lg">
+                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Regular</span>
+            </div>
+            <h2 class="text-xl font-bold mb-2">Tensión de Cadena</h2>
+            <p class="text-gray-400 text-sm mb-4">Limpieza, lubricación y ajuste de holgura.</p>
+            <div class="mb-6">
+                <p class="text-sm text-gray-500 mb-1">Último ajuste:</p>
+                <p class="font-mono text-lg" id="fecha-cadena">02 Nov 2026</p>
+            </div>
+            <button onclick="abrirModal('Tensión de Cadena', 'fecha-cadena')" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200">
+                Registrar Ajuste
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 backdrop-blur-sm">
+        <div class="bg-gray-800 rounded-2xl p-8 max-w-sm w-full mx-4 border border-gray-700 shadow-2xl transform scale-95 opacity-0 transition-all duration-200" id="modal-content">
+            <h3 class="text-2xl font-bold mb-2 text-white">Confirmar Registro</h3>
+            <p class="text-gray-400 mb-8">¿Estás seguro de que deseas registrar un nuevo mantenimiento para <strong id="modal-item-name" class="text-white"></strong> el día de hoy?</p>
+            <div class="flex gap-4">
+                <button onclick="cerrarModal()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2.5 rounded-xl transition-colors">
+                    Cancelar
+                </button>
+                <button onclick="confirmarRegistro()" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl transition-colors">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificación Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg hidden items-center gap-3 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span class="font-semibold">¡Registro actualizado!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
